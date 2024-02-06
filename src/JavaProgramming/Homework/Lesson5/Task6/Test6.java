@@ -15,8 +15,6 @@ public class Test6 {
             i++;
         } while (i < 101);
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> origin/master
+
+
