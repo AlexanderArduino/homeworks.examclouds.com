@@ -15,6 +15,15 @@ package JavaProgramming.Homework.Lesson4.Task3;
 public class Girlyanda {
 
     /**
+     * Выводит в консоль состояние битов числа
+     * @param lamp - число.
+     */
+    public static void serialOutLamp(int lamp){
+        System.out.println(Integer.toBinaryString(lamp));
+    }
+
+
+    /**
      * Инвертирует все 32 знака числа один раз
      *
      * @param lamp - число для инвертирования
@@ -45,7 +54,7 @@ public class Girlyanda {
      * @return - возвращает после сдвига
      */
     public static int runLeft(int lamp) {
-        return runRight(lamp, 1);
+        return runLeft(lamp, 1);
     }
 
     /**
@@ -54,7 +63,7 @@ public class Girlyanda {
      * @return - возвращает после сдвига
      */
     public static int runRight(int lamp) {
-        return runLeft(lamp, 1);
+        return runRight(lamp, 1);
     }
 
     /**
