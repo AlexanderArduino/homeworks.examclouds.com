@@ -10,6 +10,11 @@ public class Test {
 */
 
     public static void main(String[] args) {
-        System.out.println("");
+        int[] mass = new int[]{1,2,3,4,5};
+
+        for (int b :
+                mass) {
+            System.out.println(b);
+        }
     }
 }
