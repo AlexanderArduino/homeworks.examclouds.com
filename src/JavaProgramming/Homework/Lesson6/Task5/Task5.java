@@ -6,9 +6,9 @@ public class Task5 {
 
     public static int minValue(int[] a){
         int result = a[0];
-        for (int i = 0; i < a.length; i++) {
-            if(result > a[i]){
-                result = a[i];
+        for (int j : a) {
+            if (result > j) {
+                result = j;
             }
         }
         return result;
@@ -33,10 +33,16 @@ class Test{
             {143, 442, 473, 464, 475, 46, 47, 11}};
 
 
+
     public static void main(String[] args) {
 
         for (int i = 0; i < massive.length; i++) {
             System.out.print("Minimum: " + Task5.minValue(massive[i]) + "\tMaximum: " + Task5.maxValue(massive[i]) + "\n");
         }
+
+        for(int a : massive[0]) {
+            System.out.println(a);
+        }
+
     }
 }
