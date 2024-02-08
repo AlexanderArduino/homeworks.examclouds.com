@@ -18,6 +18,19 @@ public class Task6 {
     }
 
     /**
+     * Устанавливает нужный бит в 1 или 0;
+     * @param number - номер бита;
+     * @param bit - 1 или 0;
+     */
+    public void setLamp(int number, boolean bit){
+        if(bit) {
+            lamp[number] = 1;
+        } else {
+            lamp[number] = 0;
+        }
+    }
+
+    /**
      * Заполняе массив рандомными значениями нулей и единиц при помощи Math.random().
      * Ранодомные значения округляются функцией Math.round();
      */
@@ -59,34 +72,50 @@ public class Task6 {
         return result;
     }
 
+    public int[] runLeftUseMassiveCopy(int @NotNull [] massive) {
+        int[] result = massive;
+        System.arraycopy(massive, 1, result, 0, massive.length - 1);
+        result[result.length - 1] = massive[0];
+        return result;
+    }
 
-    public int[] runLeftUseMassiveCopy(int @NotNull [] massive, int count) {
-        int[] result = new int[massive.length];
+    public int[] runLeftUseMassiveCopy(int[] massive, int count){
+        int[] result = massive;
         for (int i = 0; i < count; i++) {
-            System.arraycopy(massive, 1, result, 0, massive.length - 1);
-            result[result.length - 1] = massive[0];
-            System.arraycopy(result,0,massive,0,massive.length);
+            result = runLeftUseMassiveCopy(result);
         }
+        return result;
+    }
+
+    public int[] runRight(int[] massive) {
+        int[] result = new int[massive.length];
+        for (int j = 0; j < massive.length - 1; j++) {
+            result[j + 1] = massive[j];
+        }
+        result[0] = massive[massive.length - 1];
         return result;
     }
 
     public int[] runRight(int[] massive, int count){
-        int[] result = new int[massive.length];
+        int[] result = massive;
         for (int i = 0; i < count; i++) {
-            for (int j = 0; j < massive.length-1; j++) {
-                    result[j+1] = massive[j];
-            }
-            result[0] = massive[massive.length-1];
-            System.arraycopy(result,0,massive,0,massive.length);
+            result = runRight(result);
         }
         return result;
     }
-    public int[] runRightUseMassiveCopy(int @NotNull [] massive, int count) {
+
+
+    public int[] runRightUseMassiveCopy(int @NotNull [] massive) {
         int[] result = new int[massive.length];
+        System.arraycopy(massive, 0, result, 1, massive.length - 1);
+        result[0] = massive[massive.length - 1];
+        return result;
+    }
+
+    public int[] runRightUseMassiveCopy(int @NotNull [] massive, int count){
+        int[] result = massive;
         for (int i = 0; i < count; i++) {
-            System.arraycopy(massive,0,result,1,massive.length-1 );
-            result[0] = massive[massive.length-1];
-            System.arraycopy(result,0,massive,0,massive.length);
+            result = runRightUseMassiveCopy(result);
         }
         return result;
     }
@@ -102,8 +131,17 @@ class Test {
         t.setLamp(startMassive);
 
         System.out.println("Задано: " + "\t\t" + Arrays.toString(t.getLamp()));
+        System.out.println("Вправо" + "\t\t\t" + Arrays.toString(t.runRight(t.getLamp())));
+        System.out.println("Вправо^" + "\t\t\t" + Arrays.toString(t.runRight(t.getLamp(), 9)));
+        System.out.println("Вправо" + "\t\t\t" + Arrays.toString(t.runRightUseMassiveCopy(t.getLamp())));
+        System.out.println("Вправо^" + "\t\t\t" + Arrays.toString(t.runRightUseMassiveCopy(t.getLamp(), 9)));
+
+
+
+//        System.out.println("1влево^ " + "\t\t" + Arrays.toString(t.runLeftUseMassiveCopy(t.getLamp())));
+//        System.out.println("1влево^ " + "\t\t" + Arrays.toString(t.runLeftUseMassiveCopy(t.getLamp(), 9)));
 //        System.out.println("1влево" + "\t\t\t" + Arrays.toString(t.runLeft(t.getLamp())));
-        System.out.println("2влево" + "\t\t\t" + Arrays.toString(t.runLeft(t.getLamp(),9)));
+//        System.out.println("2влево" + "\t\t\t" + Arrays.toString(t.runLeft(t.getLamp(),9)));
 
     }
 
