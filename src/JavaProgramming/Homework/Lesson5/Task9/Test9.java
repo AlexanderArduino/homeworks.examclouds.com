@@ -1,11 +1,9 @@
 package JavaProgramming.Homework.Lesson5.Task9;
 
-import javax.swing.*;
-
 /**
  * 9. Факториал.
  * Реализовать подсчет факториала используя цикл for. Пример вычисления факториала:
- *
+ * <p>
  * n! = 1*2*...*n;
  * 0! = 1;
  * 5! = 1*2*3*4*5;
@@ -14,22 +12,28 @@ import javax.swing.*;
 
 public class Test9 {
 
-    public static int factorial(){
-        double rand = Math.random()*100/10/2;
-        System.out.println("Random: " + rand);
+    public static int factorial() {
+        double rand = 0;
+        for (int i = 0; i < 6; i++) {
+            rand += Math.random();
+        }
         int res = (int) rand;
-        System.out.print("Res: " + res);
         int fact = 1;
-//        for (int i = 0; i < rand; i++) {
-//            fact = fact * (fact+1);
-//        }
-//        System.out.println(fact);
+
+        if (res != 0) {
+            for (int i = 1; i < res + 1; i++) {
+                fact = fact * i;
+            }
+        }
         return fact;
     }
 }
 
-class Test{
+class Test {
+
     public static void main(String[] args) {
-            Test9.factorial();
+        for (int i = 0; i < 1_000; i++) {
+            System.out.println(Test9.factorial());        }
     }
+
 }
