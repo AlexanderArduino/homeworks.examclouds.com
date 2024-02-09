@@ -63,7 +63,15 @@ public class Task6 {
         return result;
     }
 
-    public int[] runLeft(int[] massive){
+    public int[] runLeftz(int [] massive, int count) {
+        int[] result = massive;
+        for (int j = 0; j < count; j++) {
+            result = runLeft(result);
+        }
+        return result;
+    }
+
+    public int[] runLeft(int @NotNull [] massive){
         int[] result = new int[massive.length];
             for (int i = 1; i < massive.length; i++) {
                 result[i - 1] = massive[i];
@@ -87,7 +95,7 @@ public class Task6 {
         return result;
     }
 
-    public int[] runRight(int[] massive) {
+    public int[] runRight(int @NotNull [] massive) {
         int[] result = new int[massive.length];
         for (int j = 0; j < massive.length - 1; j++) {
             result[j + 1] = massive[j];
