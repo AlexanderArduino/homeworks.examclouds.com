@@ -2,7 +2,7 @@ package JavaProgramming.Homework.Lesson7.Lection.BubbleAlgoritm;
 
 import java.util.Arrays;
 
-public class BubbleAlgoritm {
+public class Algoritm {
 
     public static int[] bubble(int[] massive) {
         int temp = 0;
@@ -39,24 +39,22 @@ public class BubbleAlgoritm {
     /**
      * Метод работает только на отсортированном массиве.
      * Возвращает индекс, по которому в массиве расположен искомый элемент, или -1 если элемента в массиве нет
-     * @param array - массив для поиска (должен быть отсортирован)
+     *
+     * @param array           - массив для поиска (должен быть отсортирован)
      * @param elementToSearch - элемент, котрый ищем
      * @return - возвращает индекс или -1 если элемент не найден
      */
     public static int binaryIterative(int[] array, int elementToSearch) {
-        Arrays.sort(array);
-        System.out.println("Sorting: " + Arrays.toString(array));
-        int firstIndex = 0;
-        int lastindex = array.length - 1;
-
-        while (firstIndex <= lastindex) {
-            int middleIndex = (firstIndex + lastindex) / 2;
-            if (array[middleIndex] == elementToSearch) {
+        int firstIndex = 0; //Стартовый индекс для поиска
+        int lastindex = array.length - 1; //Конечный индекс для поиска
+        while (firstIndex <= lastindex) { // Ищем пока начальный индекс не будет больше последнего
+            int middleIndex = (firstIndex + lastindex) / 2; //Расчитываем средний индекс
+            if (array[middleIndex] == elementToSearch) {    //Искомое число равно тому, что по среднему индексу?
                 return middleIndex;
-            } else if (array[middleIndex] > elementToSearch) {
-                firstIndex = middleIndex - 1;
-            } else if (array[middleIndex] < elementToSearch) {
-                firstIndex = middleIndex + 1;
+            } else if (array[middleIndex] > elementToSearch) { //Если по индексу число больше искомого
+                lastindex = middleIndex - 1;                   //последний индекс - равен средний минус 1
+            } else if (array[middleIndex] < elementToSearch) { // Если по индексу число меньше искомого
+                firstIndex = middleIndex + 1;                  // первый индекс равен средний плюс 1
             }
         }
         return -1;
@@ -67,7 +65,9 @@ class Test {
 
     public static void main(String[] args) {
         int[] mas = {0, 5, 4, 3, 45, 5, 6, 7, 5, 34, 2, 1, 32, 4, 54, 56, 7, 785, 32, 12, 3, 324, 5, 65};
-        System.out.println(BubbleAlgoritm.binaryIterative(mas, 324));
+        Arrays.sort(mas);
+        System.out.println(Arrays.toString(mas));
+        System.out.println(Algoritm.binaryIterative(mas, 3));
 
 //        System.out.println(Arrays.toString(BubbleAlgoritm.bubble(mas)));
     }
