@@ -4,6 +4,11 @@ import java.util.Arrays;
 
 public class Algoritm {
 
+    /**
+     *
+     * @param massive
+     * @return
+     */
     public static int[] bubble(int[] massive) {
         int temp = 0;
         for (int j = 0; j < massive.length; j++) {
@@ -68,7 +73,7 @@ class Test {
         Arrays.sort(mas);
         System.out.println(Arrays.toString(mas));
         System.out.println(Algoritm.binaryIterative(mas, 3));
-
+        Algoritm.linearySearch(mas,4) ;
 //        System.out.println(Arrays.toString(BubbleAlgoritm.bubble(mas)));
     }
 }
