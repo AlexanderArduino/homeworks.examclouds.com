@@ -1,14 +1,25 @@
 package JavaProgramming.Homework.Lesson12.Task3;
 
 public enum RazmerOdejdy {
-    XXS, XS, S, M, L;
+    XXS(42){
+        @Override
+        public String getDescription() {
+            return "Detskaya odejda";
+        }
+    },
+    XS(44),
+    S(46),
+    M(48),
+    L(50);
 
-    public String getDescription(RazmerOdejdy rz) {
-        String s;
+    RazmerOdejdy(int euroSize) {
+        this.euroSize = euroSize;
+    }
 
+    int euroSize;
 
-
-        return "Vzroslyi razmer";
+    public String getDescription() {
+        return "Vzroslaya odejda";
     }
 
 
