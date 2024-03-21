@@ -21,6 +21,4 @@ public enum RazmerOdejdy {
     public String getDescription() {
         return "Vzroslaya odejda";
     }
-
-
 }
