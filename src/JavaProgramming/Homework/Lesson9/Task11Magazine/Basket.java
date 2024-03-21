@@ -12,6 +12,6 @@ public class Basket {
 
     @Override
     public String toString() {
-        return "Basket{" + "basketTovar=" + Arrays.toString(basketTovar) + '}';
+        return "в корзине: " + Arrays.toString(basketTovar);
     }
 }

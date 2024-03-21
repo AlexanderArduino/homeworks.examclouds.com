@@ -10,4 +10,8 @@ public class User {
         this.password = password;
         this.basket = basket;
     }
+
+    public String getLogin() {
+        return login;
+    }
 }

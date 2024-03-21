@@ -28,12 +28,12 @@ public class Main {
         Basket basket2 = new Basket(new Tovar[]{ogurec, pomidor, pomelo});
         Basket basket3 = new Basket(new Tovar[]{kartofel, svekla, limon});
 
-        User user1 = new User("mama", "123", basket1);
-        User user2 = new User("papa", "234", basket2);
-        User user3 = new User("tesha", "345", basket3);
-        User user4 = new User("test'", "456", basket1);
+        User user1 = new User("мама", "123", basket1);
+        User user2 = new User("папа", "234", basket2);
+        User user3 = new User("теща", "345", basket3);
+        User user4 = new User("тесть", "456", basket1);
 
-        System.out.println("Тесть купил: " + user4.basket.toString());
+        System.out.println("У " + user4.getLogin() + " "  + user4.basket.toString());
         System.out.println(" ");
         System.out.println("Katalog: " + "\n" +
                 ovoshi + "\n" + frukty + "\n" + orehi);
