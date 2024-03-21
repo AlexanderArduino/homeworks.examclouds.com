@@ -2,20 +2,17 @@ package JavaProgramming.Homework.Lesson9.Task11Magazine;
 
 public class Tovar {
     String name;
-    double cena;
+    double price;
     int rating;
 
-    public Tovar(String name, double cena, int rating) {
+    public Tovar(String name, double price, int rating) {
         this.name = name;
-        this.cena = cena;
+        this.price = price;
         this.rating = rating;
     }
 
     @Override
     public String toString() {
-        return '\"' + name + '\'' +
-                ", cena=" + cena +
-                ", rating=" + rating +
-                '}';
+        return name + ": cena=" + price;
     }
 }
